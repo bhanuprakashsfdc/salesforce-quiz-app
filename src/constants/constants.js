@@ -17,7 +17,7 @@ export const DIFFICULTY_LEVELS = [
 
 export const QUIZ_TYPES = {
   FLASHCARD: "flashcard",
-  MCQ: "multiple_choice",
+  MULTIPLE_CHOICE: "multiple_choice",
   TRUE_FALSE: "true_false",
   SCENARIO: "scenario"
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import FlashCard from '../components/FlashCard';
 import QuizCard from '../components/QuizCard';
+import QuizTypeSelection from '../components/QuizTypeSelection';
 import { THEME, QUIZ_TYPES } from '../constants/constants';
 import { quizData } from '../data/quizData';
 
@@ -12,6 +13,7 @@ const QuizScreen = ({ route, navigation }) => {
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
+  const [selectedQuizType, setSelectedQuizType] = useState(null);
 
   useEffect(() => {
     // Load questions based on category
@@ -110,14 +112,16 @@ const QuizScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      {!showResults ? (
+      <View style={styles.header}>
+        <Text style={styles.categoryText}>{category}</Text>
+      </View>
+      {!selectedQuizType ? (
+        <QuizTypeSelection onSelectType={setSelectedQuizType} />
+      ) : !showResults ? (
         <>
-          <View style={styles.header}>
-            <Text style={styles.categoryText}>{category}</Text>
-            <Text style={styles.progressText}>
-              Question {currentQuestionIndex + 1} of {questions.length}
-            </Text>
-          </View>
+          <Text style={styles.progressText}>
+            Question {currentQuestionIndex + 1} of {questions.length}
+          </Text>
           {renderQuestion()}
         </>
       ) : (

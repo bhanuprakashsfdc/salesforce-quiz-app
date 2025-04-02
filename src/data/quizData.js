@@ -12,7 +12,7 @@ export const quizData = {
     },
     {
       id: 'admin_2',
-      type: QUIZ_TYPES.MCQ,
+      type: QUIZ_TYPES.MULTIPLE_CHOICE,
       question: 'Which of the following is NOT a type of Salesforce record sharing?',
       options: [
         'Organization-Wide Defaults',
@@ -53,7 +53,7 @@ export const quizData = {
   integration: [
     {
       id: 'int_1',
-      type: QUIZ_TYPES.MCQ,
+      type: QUIZ_TYPES.MULTIPLE_CHOICE,
       question: 'Which authentication method is recommended for server-to-server integrations with Salesforce?',
       options: [
         'Username-Password Flow',

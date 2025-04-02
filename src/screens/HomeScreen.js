@@ -9,6 +9,7 @@ const HomeScreen = ({ navigation }) => {
     return QUIZ_CATEGORIES.map((category, index) => (
       <TouchableOpacity
         key={index}
+        testID="category-button"
         style={styles.categoryCard}
         onPress={() => navigation.navigate('Quiz', { category })}
       >
